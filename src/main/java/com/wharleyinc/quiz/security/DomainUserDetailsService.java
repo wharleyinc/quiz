@@ -2,10 +2,6 @@ package com.wharleyinc.quiz.security;
 
 import com.wharleyinc.quiz.domain.User;
 import com.wharleyinc.quiz.repository.UserRepository;
-
-import java.util.*;
-import java.util.stream.Collectors;
-
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +12,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 /**
  * Authenticate a user from the database.

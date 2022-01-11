@@ -3,14 +3,12 @@ package com.wharleyinc.quiz.service;
 import com.wharleyinc.quiz.domain.QueOption;
 import com.wharleyinc.quiz.domain.Question;
 import com.wharleyinc.quiz.repository.QuestionRepository;
-
-import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.*;
 
 /**
  * Service Implementation for managing {@link Question}.
@@ -113,11 +111,11 @@ public class QuestionService {
     }
 
     /**
-     * Save an Answer to a Question2.
+     * Save an Answer to a Question.
      *
      * @param questionId  the question id
      * @param queOptionId id of the option selected
-     * @return the persisted entity.
+     * @return the Boolean status of request.
      */
     public Boolean submitAnswer(Long questionId, Long queOptionId) {
         log.debug("Request to submit answer: {} to Question : {}", queOptionId, questionId);
@@ -146,62 +144,9 @@ public class QuestionService {
                         return false;
                     }
                 }
-                    /*
-                    for (QueOption queOption2 : queOptionSet) {
-                        if (queOption2.equals(queOption)){
-                            log.debug("Both Options are EQUAL:  {} ", correctOption);
-                            if (queOption2.getSelectedOption().equals(true)) {
-                                count++;
-                                log.debug("Found option to be true:  {} ", queOption2);
-                                return true;
-                            }
-                        }
-                        if (correctOption && queOption2.getSelectedOption().equals(true)) {
-                            count++;
-                            if (count == 1) {
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return false;*/
+
             }
         }
         return false;
     }
-
-                 /*
-                queOptionSet.forEach(queOptionTest -> {
-                        if(queOptionTest.getAnswerOption().equals(true)) {
-                            correctOption.set(queOptionTest);
-                        }
-                });*/
-
-                /*Iterator<QueOption> setIteratorQueOption = queOptionSet.iterator();
-
-                QueOption current = new QueOption();
-
-                while (setIteratorQueOption.hasNext()) {
-                    current = setIteratorQueOption.next();
-                    if (current.getSelectedOption().equals(true)) {
-                        if (queOption.get().getSelectedOption().equals(true)) {
-                        current.setSelectedOption(true);
-                        count++;
-//                        queOptionService.save(current);
-                        queOptionSet.add(queOptionService.save(current));
-                    }
-                    }
-                } // end while loop
-                if (count != 1) {
-                    log.debug("there is an error with the option selected");
-                    current.setSelectedOption(false);
-                    return false;
-                }
-                questionRepository.save(question.get());
-                return true;
-            }
-        }
-        return false;*/
 }

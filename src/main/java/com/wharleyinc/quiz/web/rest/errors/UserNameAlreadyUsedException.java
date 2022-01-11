@@ -1,7 +1,5 @@
 package com.wharleyinc.quiz.web.rest.errors;
 
-import com.wharleyinc.quiz.service.UsernameAlreadyUsedException;
-
 public class UserNameAlreadyUsedException extends BadRequestAlertException {
 
     private static final long serialVersionUID = 1L;

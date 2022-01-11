@@ -6,17 +6,17 @@ import com.wharleyinc.quiz.domain.Quiz;
 import com.wharleyinc.quiz.domain.User;
 import com.wharleyinc.quiz.domain.enums.QuizStatus;
 import com.wharleyinc.quiz.repository.QuizRepository;
-
-import java.util.*;
-
 import com.wharleyinc.quiz.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.*;
+
+import static com.wharleyinc.quiz.utils.CreatePageFromList.createPageFromList;
 
 /**
  * Service Implementation for managing {@link Quiz}.
@@ -143,7 +143,7 @@ public class QuizService {
         Set<QueOption> queOptionSet = new HashSet<>();
         Question question;
         QueOption queOptionSelected;
-//        QueOption2 queOptionCorrect = new QueOption2();
+
         while (setIteratorQuestion.hasNext()) {
             question = setIteratorQuestion.next();
             queOptionSet = question.getQueOptions();
@@ -201,50 +201,5 @@ public class QuizService {
         }
         return null;
     }
-
-
-    /*    */
-
-    /**
-     * Find active quiz by currently logged-in user
-     * <p>
-     * Returns an existing quiz or a new quiz
-     *//*
-    public Quiz findActiveQuizByUser(String userName) {
-        Optional<Quiz> oQuiz = quizRepository.findFirstByTakenBy_UserNameAndStatusOrderByIdAsc(userName, QuizStatus.PENDING);
-
-        Quiz activeQuiz = oQuiz.orElseGet(
-                () -> {
-                    Optional<User> user = userRepository.findOneByUserName(userName);
-                    return quizRepository.save(
-                            new Quiz(
-                                    "Quiz for "+ user,
-                                    "New Quiz Description for User :"+ user,
-                                    0,
-                                    user.get(),
-                                    QuizStatus.PENDING,
-                                    null
-                            ));
-                });
-        // also serves as lazy init of questions
-        log.info("Quiz for user {} has {} questions", activeQuiz.getTakenBy(), activeQuiz.getQuestions().size());
-        return activeQuiz;
-    }*/
-
-    // to create a Page object from a List
-    static <T> Page<T> createPageFromList(List<T> list, Pageable pageable) {
-        if (list == null) {
-            throw new IllegalArgumentException("To create a Page, the list mustn't be null!");
-        }
-
-        int startOfPage = pageable.getPageNumber() * pageable.getPageSize();
-        if (startOfPage > list.size()) {
-            return new PageImpl<>(new ArrayList<>(), pageable, 0);
-        }
-
-        int endOfPage = Math.min(startOfPage + pageable.getPageSize(), list.size());
-        return new PageImpl<>(list.subList(startOfPage, endOfPage), pageable, list.size());
-    }
-
 
 }

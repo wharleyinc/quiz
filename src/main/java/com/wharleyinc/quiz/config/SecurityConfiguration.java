@@ -1,8 +1,8 @@
 package com.wharleyinc.quiz.config;
 
+import com.wharleyinc.quiz.security.AuthoritiesConstants;
 import com.wharleyinc.quiz.security.jwt.JWTConfigurer;
-import com.wharleyinc.quiz.security.*;
-import com.wharleyinc.quiz.security.jwt.*;
+import com.wharleyinc.quiz.security.jwt.TokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
@@ -14,11 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
-import org.springframework.util.CollectionUtils;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.zalando.problem.spring.web.advice.security.SecurityProblemSupport;
 
