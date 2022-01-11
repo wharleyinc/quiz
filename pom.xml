@@ -110,7 +110,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<spring.profiles.active>prod</spring.profiles.active>
+				<spring.profiles.active>heroku</spring.profiles.active>
 			</properties>
 		</profile>
 		<profile>
