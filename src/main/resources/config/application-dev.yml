@@ -1,0 +1,37 @@
+# ===================================================================
+# Spring Boot configuration.
+# ===================================================================
+
+---
+
+logging:
+  level:
+    ROOT: DEBUG
+    org.hibernate.SQL: DEBUG
+    com.wharleyinc.quiz: DEBUG
+
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/quiz
+    username: quiz
+    password:
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+
+application:
+  jwtSecret:
+  jwtSecret64: MjRlNWQwYWFmZDc1OTZhM2UxNWJmODQwMzNjMjc2YjY3ODlhZmQ5NDY5NWYwODJkMjM4ZTFmNjk5NGViNmNmZGQ4Nzc5ODA4ZWVkYzE0N2ExZGM1NDc3NjcyZDA3MjdjZTk1ZWI2OTk4MWY0M2NkNWU3NjFiYTE2ODMzZDUxNjg=
+  tokenValidityInSeconds: 86400
+  tokenValidityInSecondsForRememberMe: 2592000
+
+server:
+  port: 8080
