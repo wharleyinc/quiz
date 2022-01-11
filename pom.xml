@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wharleyinc</groupId>
-	<artifactId>quiz</artifactId>
+	<artifactId>quiz2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>quiz</name>
+	<name>quiz2</name>
 	<description>Quiz App - getCova interview test</description>
 	<properties>
 		<java.version>11</java.version>

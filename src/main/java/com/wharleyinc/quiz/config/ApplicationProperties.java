@@ -4,13 +4,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Properties specific to Quiz Cova.
+ * Properties specific to Quiz2 Cova.
  * <p>
  * Properties are configured in the {@code application.yml} file.
  */
 @Configuration
 @ConfigurationProperties(prefix = "application", ignoreUnknownFields = false)
 public class ApplicationProperties {
+
+    private String clientApp;
+
+    private String name;
 
     private String jwtSecret;
 
@@ -21,6 +25,22 @@ public class ApplicationProperties {
     private long tokenValidityInSecondsForRememberMe;
 
     public ApplicationProperties() {
+    }
+
+    public String getClientApp() {
+        return clientApp;
+    }
+
+    public void setClientApp(String clientApp) {
+        this.clientApp = clientApp;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getJwtSecret() {

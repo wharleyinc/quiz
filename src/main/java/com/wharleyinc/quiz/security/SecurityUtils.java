@@ -24,7 +24,8 @@ public final class SecurityUtils {
     private static final int DEF_COUNT = 20;
     private static final SecureRandom SECURE_RANDOM = new SecureRandom();
 
-    private SecurityUtils() {}
+    private SecurityUtils() {
+    }
 
     /**
      * Get the login of the current user.
@@ -56,9 +57,9 @@ public final class SecurityUtils {
     public static Optional<String> getCurrentUserJWT() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         return Optional
-            .ofNullable(securityContext.getAuthentication())
-            .filter(authentication -> authentication.getCredentials() instanceof String)
-            .map(authentication -> (String) authentication.getCredentials());
+                .ofNullable(securityContext.getAuthentication())
+                .filter(authentication -> authentication.getCredentials() instanceof String)
+                .map(authentication -> (String) authentication.getCredentials());
     }
 
     /**
@@ -80,7 +81,7 @@ public final class SecurityUtils {
     public static boolean hasCurrentUserAnyOfAuthorities(String... authorities) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return (
-            authentication != null && getAuthorities(authentication).anyMatch(authority -> Arrays.asList(authorities).contains(authority))
+                authentication != null && getAuthorities(authentication).anyMatch(authority -> Arrays.asList(authorities).contains(authority))
         );
     }
 
@@ -109,7 +110,7 @@ public final class SecurityUtils {
     }
 
     public static String generateRandomAlphanumericString() {
-        return RandomStringUtils.random(20, 0, 0, true, true, (char[])null, SECURE_RANDOM);
+        return RandomStringUtils.random(20, 0, 0, true, true, (char[]) null, SECURE_RANDOM);
     }
 
     public static String generatePassword() {

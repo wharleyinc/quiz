@@ -1,0 +1,256 @@
+{
+  "title": "Spring Boot Multiple Test Quiz - 10 Questions",
+  "description": "This is the description of the quiz.",
+  "questions": [{
+    "text": "Question 1",
+    "queOptions": [
+      {
+        "text": "QueOption 1",
+        "answerOption": true,
+        "selectedOption": false
+      },
+      {
+        "text": "QueOption 2",
+        "answerOption": false,
+        "selectedOption": false
+      },
+      {
+        "text": "QueOption 3",
+        "answerOption": false,
+        "selectedOption": false
+      },
+      {
+        "text": "QueOption 4",
+        "answerOption": false,
+        "selectedOption": false
+      }
+    ]
+  },
+    {
+      "text": "Question 2",
+      "queOptions": [
+        {
+          "text": "QueOption 1",
+          "answerOption": true,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 2",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 3",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 4",
+          "answerOption": false,
+          "selectedOption": false
+        }
+      ]
+    },
+    {
+      "text": "Question 3",
+      "queOptions": [
+        {
+          "text": "QueOption 1",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 2",
+          "answerOption": true,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 3",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 4",
+          "answerOption": false,
+          "selectedOption": false
+        }
+      ]
+    },
+    {
+      "text": "Question 4",
+      "queOptions": [
+        {
+          "text": "QueOption 1",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 2",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 3",
+          "answerOption": true,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 4",
+          "answerOption": false,
+          "selectedOption": false
+        }
+      ]
+    },
+    {
+      "text": "Question 5",
+      "queOptions": [
+        {
+          "text": "QueOption 1",
+          "answerOption": true,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 2",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 3",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 4",
+          "answerOption": false,
+          "selectedOption": false
+        }
+      ]
+    },
+    {
+      "text": "Question 6",
+      "queOptions": [
+        {
+          "text": "QueOption 1",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 2",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 3",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 4",
+          "answerOption": true,
+          "selectedOption": false
+        }
+      ]
+    },
+    {
+      "text": "Question 7",
+      "queOptions": [
+        {
+          "text": "QueOption 1",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 2",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 3",
+          "answerOption": true,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 4",
+          "answerOption": false,
+          "selectedOption": false
+        }
+      ]
+    },
+    {
+      "text": "Question 8",
+      "queOptions": [
+        {
+          "text": "QueOption 1",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 2",
+          "answerOption": true,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 3",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 4",
+          "answerOption": false,
+          "selectedOption": false
+        }
+      ]
+    },
+    {
+      "text": "Question 9",
+      "queOptions": [
+        {
+          "text": "QueOption 1",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 2",
+          "answerOption": true,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 3",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 4",
+          "answerOption": false,
+          "selectedOption": false
+        }
+      ]
+    },
+    {
+      "text": "Question 10",
+      "queOptions": [
+        {
+          "text": "QueOption 1",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 2",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 3",
+          "answerOption": false,
+          "selectedOption": false
+        },
+        {
+          "text": "QueOption 4",
+          "answerOption": true,
+          "selectedOption": false
+        }
+      ]
+    }
+  ],
+  "status": "PENDING"
+}

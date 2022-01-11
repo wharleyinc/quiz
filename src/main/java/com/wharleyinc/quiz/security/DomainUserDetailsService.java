@@ -2,8 +2,10 @@ package com.wharleyinc.quiz.security;
 
 import com.wharleyinc.quiz.domain.User;
 import com.wharleyinc.quiz.repository.UserRepository;
+
 import java.util.*;
 import java.util.stream.Collectors;
+
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

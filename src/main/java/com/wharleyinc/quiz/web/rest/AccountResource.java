@@ -24,7 +24,6 @@ import com.wharleyinc.quiz.web.rest.vm.ManagedUserVM;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -69,7 +68,7 @@ public class AccountResource {
 
     private final Logger log = LoggerFactory.getLogger(AccountResource.class);
 
-    @Value("${application.clientApp.name}")
+    //    @Value("${application.clientApp.name}")
     private String applicationName;
 
     private final TokenProvider tokenProvider;
@@ -91,8 +90,8 @@ public class AccountResource {
      * {@code POST  /register} : register the user.
      *
      * @param managedUserVM the managed user View Model.
-     * @throws InvalidPasswordException {@code 400 (Bad Request)} if the password is incorrect.
-     * @throws EmailAlreadyUsedException {@code 400 (Bad Request)} if the email is already used.
+     * @throws InvalidPasswordException     {@code 400 (Bad Request)} if the password is incorrect.
+     * @throws EmailAlreadyUsedException    {@code 400 (Bad Request)} if the email is already used.
      * @throws UserNameAlreadyUsedException {@code 400 (Bad Request)} if the login is already used.
      */
     @PostMapping("/register")
@@ -114,11 +113,12 @@ public class AccountResource {
      * @throws RuntimeException {@code 500 (Internal Server Error)} if the user couldn't be activated.
      */
     @GetMapping("/activate")
-    public void activateAccount(@RequestParam(value = "key") String key) {
+    public ResponseEntity<Boolean> activateAccount(@RequestParam(value = "key") String key) {
         Optional<User> user = userService.activateRegistration(key);
         if (!user.isPresent()) {
             throw new AccountResourceException("No user was found for this activation key");
         }
+        return ResponseEntity.ok(true);
     }
 
     /**
@@ -185,9 +185,9 @@ public class AccountResource {
     @GetMapping("/account")
     public AdminUserDTO getAccount() {
         return userService
-            .getUserWithAuthorities()
-            .map(AdminUserDTO::new)
-            .orElseThrow(() -> new AccountResourceException("User could not be found"));
+                .getUserWithAuthorities()
+                .map(AdminUserDTO::new)
+                .orElseThrow(() -> new AccountResourceException("User could not be found"));
     }
 
     /**
@@ -195,13 +195,13 @@ public class AccountResource {
      *
      * @param userDTO the current user information.
      * @throws EmailAlreadyUsedException {@code 400 (Bad Request)} if the email is already used.
-     * @throws RuntimeException {@code 500 (Internal Server Error)} if the user login wasn't found.
+     * @throws RuntimeException          {@code 500 (Internal Server Error)} if the user login wasn't found.
      */
     @PostMapping("/account")
     public void saveAccount(@Valid @RequestBody AdminUserDTO userDTO) {
         String userName = SecurityUtils
-            .getCurrentUserLogin()
-            .orElseThrow(() -> new AccountResourceException("Current user login not found"));
+                .getCurrentUserLogin()
+                .orElseThrow(() -> new AccountResourceException("Current user login not found"));
         Optional<User> existingUser = userRepository.findOneByEmailIgnoreCase(userDTO.getEmail());
         if (existingUser.isPresent() && (!existingUser.get().getUserName().equalsIgnoreCase(userName))) {
             throw new EmailAlreadyUsedException();
@@ -211,10 +211,10 @@ public class AccountResource {
             throw new AccountResourceException("User could not be found");
         }
         userService.updateUser(
-            userDTO.getUserName(),
-            userDTO.getFirstName(),
-            userDTO.getLastName()
-                );
+                userDTO.getUserName(),
+                userDTO.getFirstName(),
+                userDTO.getLastName()
+        );
     }
 
     /**
@@ -254,7 +254,7 @@ public class AccountResource {
      *
      * @param keyAndPassword the generated key and the new password.
      * @throws InvalidPasswordException {@code 400 (Bad Request)} if the password is incorrect.
-     * @throws RuntimeException {@code 500 (Internal Server Error)} if the password could not be reset.
+     * @throws RuntimeException         {@code 500 (Internal Server Error)} if the password could not be reset.
      */
     @PostMapping(path = "/account/reset-password/finish")
     public void finishPasswordReset(@RequestBody KeyAndPasswordVM keyAndPassword) {
@@ -270,9 +270,9 @@ public class AccountResource {
 
     private static boolean isPasswordLengthInvalid(String password) {
         return (
-            StringUtils.isEmpty(password) ||
-            password.length() < ManagedUserVM.PASSWORD_MIN_LENGTH ||
-            password.length() > ManagedUserVM.PASSWORD_MAX_LENGTH
+                StringUtils.isEmpty(password) ||
+                        password.length() < ManagedUserVM.PASSWORD_MIN_LENGTH ||
+                        password.length() > ManagedUserVM.PASSWORD_MAX_LENGTH
         );
     }
 
@@ -285,7 +285,7 @@ public class AccountResource {
      *
      * @param userDTO the user to create.
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new user, or with status {@code 400 (Bad Request)} if the login or email is already in use.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     * @throws URISyntaxException       if the Location URI syntax is incorrect.
      * @throws BadRequestAlertException {@code 400 (Bad Request)} if the login or email is already in use.
      */
     @PostMapping("/users")
@@ -315,7 +315,7 @@ public class AccountResource {
      *
      * @param userDTO the user to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated user.
-     * @throws EmailAlreadyUsedException {@code 400 (Bad Request)} if the email is already in use.
+     * @throws EmailAlreadyUsedException    {@code 400 (Bad Request)} if the email is already in use.
      * @throws UserNameAlreadyUsedException {@code 400 (Bad Request)} if the login is already in use.
      */
     @PutMapping("/users")

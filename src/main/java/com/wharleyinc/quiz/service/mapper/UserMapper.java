@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 /**
  * Mapper for the entity {@link User} and its DTO called {@link UserDTO}.
- *
+ * <p>
  * Normal mappers are generated using MapStruct, this one is hand-coded as MapStruct
  * support is still in beta, and requires a manual step with an IDE.
  */
@@ -63,14 +63,14 @@ public class UserMapper {
 
         if (authoritiesAsString != null) {
             authorities =
-                authoritiesAsString
-                    .stream()
-                    .map(string -> {
-                        Authority auth = new Authority();
-                        auth.setName(string);
-                        return auth;
-                    })
-                    .collect(Collectors.toSet());
+                    authoritiesAsString
+                            .stream()
+                            .map(string -> {
+                                Authority auth = new Authority();
+                                auth.setName(string);
+                                return auth;
+                            })
+                            .collect(Collectors.toSet());
         }
 
         return authorities;
