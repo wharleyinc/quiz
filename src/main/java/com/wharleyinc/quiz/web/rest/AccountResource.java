@@ -24,6 +24,7 @@ import com.wharleyinc.quiz.web.rest.vm.ManagedUserVM;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -68,7 +69,7 @@ public class AccountResource {
 
     private final Logger log = LoggerFactory.getLogger(AccountResource.class);
 
-    //    @Value("${application.clientApp.name}")
+    @Value("${spring.application.name}")
     private String applicationName;
 
     private final TokenProvider tokenProvider;

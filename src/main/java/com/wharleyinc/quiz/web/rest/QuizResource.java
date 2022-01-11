@@ -12,6 +12,7 @@ import com.wharleyinc.quiz.utils.ResponseUtil;
 import com.wharleyinc.quiz.web.rest.errors.BadRequestAlertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -43,7 +44,7 @@ public class QuizResource {
 
     private static final String ENTITY_NAME = "quiz";
 
-    //    @Value("${jhipster.clientApp.name}")
+    @Value("${spring.application.name}")
     private String applicationName;
 
     private final QuizService quizService;

@@ -8,6 +8,7 @@ import com.wharleyinc.quiz.utils.ResponseUtil;
 import com.wharleyinc.quiz.web.rest.errors.BadRequestAlertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +29,7 @@ public class QueOptionResource {
 
     private static final String ENTITY_NAME = "queOption";
 
-    //    @Value("${application.name}")
+    @Value("${spring.application.name}")
     private String applicationName;
 
     private final QueOptionService queOptionService;
