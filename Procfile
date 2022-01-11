@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Xmx256m ./target/*.jar
+java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
