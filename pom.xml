@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wharleyinc</groupId>
-	<artifactId>quiz2</artifactId>
+	<artifactId>quiz</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>quiz2</name>
-	<description>Quiz App - getCova interview test</description>
+	<name>quizapp</name>
+	<description>Quiz App - getCova Test</description>
 	<properties>
 		<java.version>11</java.version>
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
