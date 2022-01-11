@@ -1,0 +1,59 @@
+# ===================================================================
+# Spring Boot configuration.
+# ===================================================================
+
+---
+spring:
+  application:
+    name: quizApp
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/quiz
+    username: postgres
+    password: Olawale!@
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  jpa:
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate.jdbc.time_zone: UTC
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.generate_statistics: false
+      # modify batch size as necessary
+      hibernate.jdbc.batch_size: 25
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+      hibernate.query.fail_on_pagination_over_collection_fetch: true
+      hibernate.query.in_clause_parameter_padding: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+
+  jackson:
+    serialization:
+      indent-output: true
+
+application:
+  jwtSecret:
+  jwtSecret64: MDU2ODg4ZWE1ODgxZTEwODVjMTY2OTNkNGQzMTc1Y2FlY2NmZGE1ZTE2MmU0MmU2YzZlYWQ4ODMzNzE1MGUxMGIzNDMzODgzNzFjNjcwODUzNTNlODJhYWQwMzk0YTRlNWIwOWE3Mzg5NzBiOWY3N2YxZGQ4OTY2YjdiMjY0ZTk=
+  tokenValidityInSeconds: 86400
+  tokenValidityInSecondsForRememberMe: 2592000
+
+logging:
+  level:
+    ROOT: DEBUG
+    org.hibernate.SQL: DEBUG
+    com.wharleyinc.quiz: DEBUG
+
+server:
+  port: 8080
